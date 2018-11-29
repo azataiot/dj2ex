@@ -213,3 +213,44 @@ admin.site.register(Post)
 ### Customize the way how are models displayed.
 
 ![image-20181129225541952](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpf6aljp7j318c05egnr.jpg)
+
+``` python
+from django.contrib import admin
+
+# Register your models here.
+
+from django.contrib import admin
+from .models import Post
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title','slug','author','publish','status')
+```
+
+![image-20181129230424610](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpffeer9kj31ae0g67gp.jpg)
+
+![image-20181129230328656](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpffikjqij32d60de40b.jpg)
+
+Let's customize the admin model with some more opthions:
+
+``` python
+from django.contrib import admin
+
+# Register your models here.
+
+from django.contrib import admin
+from .models import Post
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title','slug','author','publish','status')
+    list_filter = ('status','created','publish','author')
+    search_fields = ('title','body')
+    prepopulated_fields = {'slug':('title',)}
+    raw_id_fields = ('author',)
+    date_hierarchy = 'publish'
+    ordering = ('status','publish')
+
+```
+
+![image-20181129231837451](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpfu6e1r3j31np0u0grr.jpg)
