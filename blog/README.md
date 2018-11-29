@@ -53,15 +53,15 @@ If we can see versions like above, that means we are successfully installed the 
 
 ![image-20181129212939528](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpcors1rej312w05c0tm.jpg)
 
-![image-20181129213002054](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181129213002054.png)
+![image-20181129213002054](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpf9io2bwj311u04qaaz.jpg)
 
-![image-20181129213025979](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181129213025979.png)
+![image-20181129213025979](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpf9es3gaj30zs07aq4b.jpg)
 
 ### Django migrate
 
 ` python manage.py migrate`
 
-![image-20181129213208297](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181129213208297.png)
+![image-20181129213208297](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpf9ai3srj30zm0kc786.jpg)
 
 ## Running the development server
 
@@ -87,7 +87,7 @@ within the settings file ,we can configure our django project.,
 
 ![image-20181129220952397](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpduvq5hbj30zu05aaar.jpg)
 
-![image-20181129221219392](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181129221219392.png)
+![image-20181129221219392](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpf90zt5hj31490u0doy.jpg)
 
 ## Projects and Applications
 
@@ -101,7 +101,7 @@ Let's Create our first Django Application.
 
 ![image-20181129221552392](https://ws4.sinaimg.cn/large/006tNbRwgy1fxpe0v4vgnj310a036wf2.jpg)
 
-![image-20181129221605540](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181129221605540.png)
+![image-20181129221605540](https://ws4.sinaimg.cn/large/006tNbRwgy1fxpf8ug6hyj30jy0se0uu.jpg)
 
 ![image-20181129221731945](https://ws4.sinaimg.cn/large/006tNbRwgy1fxpe2niezxj31940mgq9q.jpg)
 
@@ -171,7 +171,7 @@ INSTALLED_APPS = [
 
 `python manage.py makemigrations site_blog`
 
-![image-20181129224323842](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181129224323842.png)
+![image-20181129224323842](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpf8g61bgj30y005idgt.jpg)
 
 Lets sync our data base with the new model:
 
@@ -193,7 +193,7 @@ Lets sync our data base with the new model:
 
 ### Add our model to the administrator site
 
-![image-20181129225055256](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181129225055256.png)
+![image-20181129225055256](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpf88vxiij315u04a0u5.jpg)
 
 ``` python
 from django.contrib import admin
