@@ -254,3 +254,84 @@ class PostAdmin(admin.ModelAdmin):
 ```
 
 ![image-20181129231837451](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpfu6e1r3j31np0u0grr.jpg)
+
+![image-20181130101753626](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpywelo4ij31c80jkqff.jpg)
+
+![image-20181130101854432](https://ws4.sinaimg.cn/large/006tNbRwgy1fxpyx6xxl2j31c80em462.jpg)
+
+## Working with Querry and managers
+
+![image-20181130102013165](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpyymlbmjj31ay0j248k.jpg)
+
+### Creating Objects
+
+Open python shell with this command:
+
+` python manage.py shell`
+
+Then type the following commands:
+
+![image-20181130102713801](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpz5uurnlj31es0d0gob.jpg)
+
+![image-20181130102800205](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpz6nat69j31aa05441x.jpg)
+
+` user = User.objects.get(username='yaakovazat')`
+
+![image-20181130102947004](https://ws4.sinaimg.cn/large/006tNbRwgy1fxpzam2npfj31aw06a77j.jpg)
+
+Post:
+
+``` python
+post = Post(title ='another post',
+            slug = 'another-post',
+            body = 'this is the body',
+            author = user)
+```
+
+![image-20181130103611838](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpzf64x2tj315s04qq46.jpg)
+
+`post.save()`
+
+![image-20181130103818999](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpzhgl2bvj31dc0hu12x.jpg)
+
+### Updating Objects
+
+``` python
+>>> post.title = 'New title'
+>>> post.save()
+```
+
+![image-20181130104303263](https://ws4.sinaimg.cn/large/006tNbRwgy1fxpzmchae8j31am05aq4m.jpg)
+
+![image-20181130104316308](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpzmjmw60j31sr0u0ag2.jpg)
+
+![image-20181130104347361](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpzn2l7r5j319c08cn13.jpg)
+
+## Retriving Objects
+
+![image-20181130104523824](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpzosggmjj31c00hgwq7.jpg)
+
+![image-20181130104614591](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpzplti8yj30oo04qmxg.jpg)
+
+``` python
+>>> all_posts = Post.objects.all()
+>>> all_posts
+<QuerySet [<Post:New title>, <Post: Add our first post>]>
+```
+
+## Using the filter method
+
+![image-20181130104845804](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpzsah8emj319i0c8wir.jpg)
+
+`Post.objects.filter(publish__year=2017)`
+
+![image-20181130105002706](/Users/yaakovazat/Library/Application Support/typora-user-images/image-20181130105002706.png)
+
+` Post.objects.filter(publish__year=2017, author__username='yaakovazat')`
+
+![image-20181130105157121](https://ws2.sinaimg.cn/large/006tNbRwgy1fxpzvn638ij319y0fqgp6.jpg)
+
+![image-20181130105246080](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpzweg49uj30pa044t93.jpg)
+
+![image-20181130105543514](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpzziud87j31720ccjth.jpg)
+
