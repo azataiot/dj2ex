@@ -333,5 +333,68 @@ post = Post(title ='another post',
 
 ![image-20181130105246080](https://ws1.sinaimg.cn/large/006tNbRwgy1fxpzweg49uj30pa044t93.jpg)
 
-![image-20181130105543514](https://ws3.sinaimg.cn/large/006tNbRwgy1fxpzziud87j31720ccjth.jpg)
+![image-20181130105543514](https://ws4.sinaimg.cn/large/006tNbRwgy1fxq0axw77fj31720cc0uj.jpg)
+
+## Using Exclude
+
+![image-20181130110726766](https://ws4.sinaimg.cn/large/006tNbRwgy1fxq0bpcj2oj31ek0hiwm5.jpg)
+
+``` python
+>>> from site_blog.models import Post
+>>> try_exclude = Post.objects.filter(publish__year=2018)\
+... .exclude(title__startswith='New')
+>>> try_exclude
+<QuerySet [<Post: Add our first post>]>
+>>> 
+```
+
+
+
+![image-20181130111303060](https://ws1.sinaimg.cn/large/006tNbRwgy1fxq0hlble6j30ro06ojs2.jpg)
+
+## Using Order_by()
+
+``` 
+>>> try_order = Post.objects.order_by('title')
+>>> try_order
+<QuerySet [<Post: Add our first post>, <Post: New title>]>
+>>> 
+```
+
+![image-20181130111521944](https://ws1.sinaimg.cn/large/006tNbRwgy1fxq0jy8ujvj31fc0ccadm.jpg)
+
+![image-20181130111553415](https://ws2.sinaimg.cn/large/006tNbRwgy1fxq0kk36n0j31d40asjun.jpg)
+
+`Post.objects.order_by('-title')`
+
+##  Deleting Objects
+
+![image-20181130111652001](https://ws4.sinaimg.cn/large/006tNbRwgy1fxq0litpvlj319o0dktc2.jpg)
+
+Note:
+
+![image-20181130111717898](https://ws1.sinaimg.cn/large/006tNbRwgy1fxq0ly9colj31a80e2dkf.jpg)
+
+## Creating Model Manager
+
+![image-20181130111941356](https://ws3.sinaimg.cn/large/006tNbRwgy1fxq0ogs83fj31cm0l2n8q.jpg)
+
+1. Add custom manager
+
+Edit the models.py :
+
+``` python
+
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager,self).get_queryset()\.filter(status='published')
+
+
+
+class Post(models.Model):
+    objects = models.Manager()
+    published = PublishedManager()
+```
+
+## Building list and detail views
 
